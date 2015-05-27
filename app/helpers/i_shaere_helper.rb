@@ -1,0 +1,2 @@
+module IShaereHelper
+end

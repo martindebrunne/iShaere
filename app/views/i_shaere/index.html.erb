@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="iShaere">
+<head>
+  <title>iShaere</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav ng-controller="navCtrl">
+    <ul ng-init="selectContent='home'">
+        <li>iShaere</li>
+        <li ng-class="{activeTab: selectContent=='home'}" ng-click="selectContent='home'">Accueil</li>
+        <li ng-class="{activeTab: selectContent=='account'}" ng-click="selectContent='account'">Mon compte</li>
+        <li ng-class="{activeTab: selectContent=='about'}" ng-click="selectContent='about'">A propos</li>
+        <li ng-class="{activeTab: selectContent=='contact'}" ng-click="selectContent='contact'">Contact</li>
+    </ul>
+    <div></div>
+</nav>
+<div ng-include="home.html"></div>
+   <content></content>
+</body>
+</html>
