@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -12,8 +13,6 @@ module IShaere
     config.angular_templates.module_name    = 'templates'
     config.angular_templates.ignore_prefix  = %w(templates/)
     config.angular_templates.inside_paths   = [Rails.root.join('app', 'assets')]
-    config.angular_templates.markups        = %w(erb str)
-    config.angular_templates.htmlcompressor = false
     # FIN PERSO POUR ANGULARJS
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -29,5 +28,6 @@ module IShaere
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
   end
 end

@@ -18,10 +18,8 @@
 
     app.directive('content', function() {
         return {
-            restrict: 'E',
-            templateUrl: 'home.html'
+            restrict: 'E' 
             // link: function(scope, element, attrs) {
-            // 		templateUrl: '<p>test</p>'
             //     scope.getContentUrl = function(content) {
             //         switch (content) {
             //             case 'home':
@@ -39,7 +37,6 @@
             //         }
             //     };
             // },
-            // template: '<div ng-include="getContentUrl(contentTab)"></div>'
         };
     });
     // app.directive('scroll', function($window) {
