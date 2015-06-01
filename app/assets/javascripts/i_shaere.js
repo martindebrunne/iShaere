@@ -11,32 +11,33 @@
 (function() {
 
     // var app = angular.module('ishaere', ['ishaereHome', 'ishaereAbout', 'ishaereContact', 'ishaereUser']);
-    var app = angular.module('iShaere', ['templates']);
+    var app = angular.module('iShaere', ['templates', 'ishaereHome', 'ishaereAbout', 'ishaereContact', 'ishaereUser']);
 
-    app.controller('navCtrl', ['$scope', function($scope) {
-    }]);
+    app.controller('navCtrl', ['$scope', function($scope) {}]);
 
     app.directive('content', function() {
         return {
-            restrict: 'E' 
-            // link: function(scope, element, attrs) {
-            //     scope.getContentUrl = function(content) {
-            //         switch (content) {
-            //             case 'home':
-            //                 return 'home.html';
+            restrict: 'E',
+            link: function(scope, element, attrs) {
+                scope.getContentUrl = function(content) {
+                    switch (content) {
+                        case 'home':
+                            return 'home.html';
 
-            //             case 'about':
-            //                 return '../views/about.html';
+                        case 'about':
+                            return 'about.html';
 
-            //             case 'contact':
-            //                 return '../views/contact.html';
+                        case 'contact':
+                            return 'contact.html';
 
-            //             case 'user':
-            //                 return '../views/user.html';
+                        case 'user':
+                            return 'user.html';
 
-            //         }
-            //     };
-            // },
+                    }
+                };
+            },
+            replace: true,
+            template: '<div ng-include="getContentUrl(selectContent)">dsds</div>'
         };
     });
     // app.directive('scroll', function($window) {

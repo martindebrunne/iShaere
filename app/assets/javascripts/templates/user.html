@@ -1,0 +1,20 @@
+<div id="user" ng-controller="userCtrl as user" ng-init="getUser()">
+    <div class="menu">
+        <ul>
+            <li ng-class="{activeTabUser:tabUser=='profil'}" ng-click="tabUser='profil'"><p>Profil</p></li>
+            <li ng-class="{activeTabUser:tabUser=='share'}" ng-click="tabUser='share'"><p>Partagé</p></li>
+            <li ng-class="{activeTabUser:tabUser=='rating'}" ng-click="tabUser='rating'"><p>Noté</p></li>
+            <li ng-class="{activeTabUser:tabUser=='filter'}" ng-click="tabUser='filter'"><p>Filtre</p></li>
+            <li ng-class="{activeTabUser:tabUser=='censure'}" ng-click="tabUser='censure'"><p>Censure</p></li>
+            <li ng-class="{activeTabUser:tabUser=='preference'}" ng-click="tabUser='preference'"><p>Préférences</p></li>
+        </ul>
+    </div>
+    <div class="body">
+        <profil ng-show="tabUser=='profil'"></profil>
+        <share ng-show="tabUser=='share'"></share>
+        <rating ng-show="tabUser=='rating'"></rating>
+        <filter ng-show="tabUser=='filter'"></filter>
+        <censure ng-show="tabUser=='censure'"></censure>
+        <preference ng-show="tabUser=='preference'"></preference>
+    </div>
+</div>

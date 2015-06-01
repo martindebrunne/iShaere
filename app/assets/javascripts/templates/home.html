@@ -1,3 +1,17 @@
-<div>
-    <p>TEST</p>
+<div id="home" ng-controller="homeCtrl">
+    <div class="item" ng-repeat="item in items">
+        <h4>{{item.name}}</h4>
+        <div class="border">
+            <a ng-href="{{item.url}}" target="_blank"><img ng-src="{{item.img}}" /></a>
+            <div>
+                <div class="vues">
+                    <img src="http://www.barometr.fr/wp-content/uploads/2013/11/iconmonstr-eye-7-icon-256-50x50.png" />
+                    <p>{{item.vues}}</p>
+                </div>
+                <div class="stars">
+                    <p>{{item.stars}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
