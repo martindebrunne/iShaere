@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 
 module IShaere
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     # PERSO POUR ANGULARJS
     config.angular_templates.module_name    = 'templates'
     config.angular_templates.ignore_prefix  = %w(templates/)
