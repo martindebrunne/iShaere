@@ -2,7 +2,27 @@ class ItemsController < ApplicationController
 	respond_to :json
 	
 	def index
-		respond_with Item.all
+		sql = "SELECT * FROM items"
+		sql += " WHERE title = 'fin'" #POUR LA BARRE DE RECHERCHE
+
+		# DEBUT PARTIE DE TRI
+		sql += " ORDER BY"
+		safe_params = Hash.new
+		def extract_params(params, key)
+			if params.has_key?(key) && (params[key] == "ASC" || params[key] == "DESC")
+				params[key]
+			else
+				"ASC"
+			end
+		end
+		safe_params["updated_at"] = extract_params params, :update_at
+		safe_params["created_at"] = extract_params params, :update_at
+		safe_params["title"] = extract_params params, :title
+		safe_params["vues"] = extract_params params, :vues
+		sql += safe_params.map{|k,v| " #{k} #{v}"}.join(',')
+		# FIN PARTIE DE TRI
+		
+		respond_with Item.connection.select_all(sql)
 	end
 	
 	# def show

@@ -13,10 +13,19 @@
         //     });
         // };
         // $scope.getItems();
-        // $interval(function() {
-        //     $scope.getItems();
-        // }, 5000);
-        var Items = $resource("/items/:id", {id: "@id"}, {update: {method:"PUT"}});
+        var Items = $resource("/items/:id", {
+            id: "@id",
+            updated_at: "DESC",
+            title: "ASC",
+            vues: "DESC"
+        }, {
+            update: {
+                method: "PUT"
+            }
+        });
         $scope.items = Items.query();
+        $interval(function() {
+            $scope.items = Items.query();
+        }, 10000);
     }]);
 })();

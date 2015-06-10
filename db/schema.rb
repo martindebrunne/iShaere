@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 20150601154100) do
 
   create_table "items", force: :cascade do |t|
     t.string   "title",      limit: 255
+    t.string   "url",        limit: 255
+    t.string   "img",        limit: 255
+    t.integer  "vues",       limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
